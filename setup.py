@@ -10,8 +10,9 @@ classifiers = [
 
 setup(
     name='tercol',
-    version='0.0.4',
+    version='0.0.6',
     description='TerCol is a simple library that colors your text, I guess',
+    ong_description=open('README.md', 'r').read(),
     url='https://github.com/Butterroach/tercol/',
     author='Sultan Marzouq',
     author_email='epicnoobcontactemail@gmail.com',
@@ -20,5 +21,5 @@ setup(
     keywords='terminal styling, colors, style',
     packages=find_packages(),
     install_requires=[''],
-    download_url = 'https://github.com/Butterroach/tercol/archive/v_004.tar.gz'
+    download_url = 'https://github.com/Butterroach/tercol/archive/v_006.tar.gz'
 )
