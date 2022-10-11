@@ -18,4 +18,9 @@
     print(tercol.hex('#ffd700', 'Gold text using HEX'))
 
 that's all
-bye
+
+this is not advanced
+
+I'm not gonna talk about how "AmAzInG" this library is
+
+it's literal garbage
