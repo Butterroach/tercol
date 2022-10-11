@@ -12,7 +12,7 @@ setup(
     name='tercol',
     version='0.0.6',
     description='TerCol is a simple library that colors your text, I guess',
-    ong_description=open('README.md', 'r').read(),
+    long_description=open('README.md', 'r').read(),
     url='https://github.com/Butterroach/tercol/',
     author='Sultan Marzouq',
     author_email='epicnoobcontactemail@gmail.com',
