@@ -1,4 +1,4 @@
-# **TerCol**
+# **[TerCol](https://pypi.org/project/tercol/)**
 
 #### _A completely useless library for terminal styling._
 
