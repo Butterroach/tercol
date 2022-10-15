@@ -141,7 +141,9 @@ def rainbowtext(text):
     formedstr = ''
     i = 0
     for char in text:
-        if char in ' \t\n': continue
+        if char in ' \t\n':
+            formedstr += char
+            continue
         mi = i%7
         if mi == 0:
             formedstr += hex('f33444', char)
