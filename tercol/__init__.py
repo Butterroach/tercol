@@ -1,5 +1,6 @@
 #Imports
 from os import system as execc
+from math import modf
 
 #Color codes
 __cblack = "\u001b[30m"
@@ -131,6 +132,33 @@ def brightblack(text):
 
 def lightblack(text):
     return gray(text)
+
+def rainbowtext(text):
+    """
+    Enjoy I guess
+    """
+    exec('')
+    formedstr = ''
+    i = 0
+    for char in text:
+        if char in ' \t\n': continue
+        mi = i%7
+        if mi == 0:
+            formedstr += hex('f33444', char)
+        elif mi == 1:
+            formedstr += hex('ff8901', char)
+        elif mi == 2:
+            formedstr += hex('fad716', char)
+        elif mi == 3:
+            formedstr += hex('00ba70', char)
+        elif mi == 4:
+            formedstr += hex('00c0dd', char)
+        elif mi == 5:
+            formedstr += hex('00408a', char)
+        elif mi == 6:
+            formedstr += hex('5e2779', char)
+        i+=1
+    return formedstr
 
 #Background colors
 
