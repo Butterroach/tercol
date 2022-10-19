@@ -1,6 +1,8 @@
 #Imports
 from os import system as execc
-from math import modf
+
+#DISABLE THIS TO STOP IT FROM DOING os.system('')
+autoOsSystem = True
 
 #Color codes
 __cblack = "\u001b[30m"
@@ -23,6 +25,8 @@ __cbgwhite = "\u001b[47m"
 __cbggray = "\u001b[0;100m"
 __sbold = "\u001b[1m"
 __sitalic = "\u001b[3m"
+__sblink = "\u001b[5m"
+__sanotherblink = "\u001b[6m" # I dunno what the difference between 5m and 6m is but they both blink so I'm adding this just in case someone needs it
 __sunderlined = "\u001b[4m"
 __sinverted = " \u001b[7m"
 __endcolor = "\u001b[0m"
@@ -32,14 +36,14 @@ def rgb(r, g, b, text):
     """
     Takes 4 values, the red, the blue, the green and the text. The color is based on what rgb you inputed.
     """
-    execc('')
+    if autoOsSystem: execc('')
     return f"\u001b[38;2;{r};{g};{b}m{text}{__endcolor}"
 
 def bgrgb(r, g, b, text): 
     """
     Same thing as rgb(r, g, b, text) but it colors the background instead.
     """
-    execc('')
+    if autoOsSystem: execc('')
     return f"\u001b[48;2;{r};{g};{b}m{text}{__endcolor}"
 
 #Hex
@@ -47,7 +51,6 @@ def hex(hex: str, text):
     """
     Takes a hex code and a text, converts it to rgb and uses the existing rgb function in this library.
     """
-    execc('')
     try:
         RGBHEX = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
         hexcode = hex.replace('#', '').casefold()
@@ -89,39 +92,39 @@ def bghex(hex: str, text):
 #Color Functions
 
 def black(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cblack}{text}{__endcolor}"
 
 def red(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cred}{text}{__endcolor}"
 
 def green(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cgreen}{text}{__endcolor}"
 
 def yellow(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cyellow}{text}{__endcolor}"
 
 def blue(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cblue}{text}{__endcolor}"
 
 def magenta(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cmagenta}{text}{__endcolor}"
 
 def cyan(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__ccyan}{text}{__endcolor}"
 
 def white(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cwhite}{text}{__endcolor}"
 
 def gray(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cgray}{text}{__endcolor}"
 
 def grey(text):
@@ -137,11 +140,11 @@ def rainbowtext(text):
     """
     Enjoy I guess
     """
-    exec('')
+    if autoOsSystem: execc('')
     formedstr = ''
     i = 0
     for char in text:
-        if char in ' \t\n':
+        if char in ' \t\n': 
             formedstr += char
             continue
         mi = i%7
@@ -165,39 +168,39 @@ def rainbowtext(text):
 #Background colors
 
 def bgblack(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbgblack}{text}{__endcolor}"
 
 def bgred(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbgred}{text}{__endcolor}"
 
 def bggreen(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbggreen}{text}{__endcolor}"
 
 def bgyellow(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbgyellow}{text}{__endcolor}"
 
 def bgblue(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbgblue}{text}{__endcolor}"
 
 def bgmagenta(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbgmagenta}{text}{__endcolor}"
 
 def bgcyan(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbgcyan}{text}{__endcolor}"
 
 def bgwhite(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbgwhite}{text}{__endcolor}"
 
 def bggray(text):
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__cbggray}{text}{__endcolor}"
 
 def bggrey(text):
@@ -214,26 +217,48 @@ def bold(text):
     """
     Makes your text bold.
     """
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__sbold}{text}{__endcolor}"
 
 def italic(text):
     """
     Makes your text italic.
     """
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__sitalic}{text}{__endcolor}"
 
 def underlined(text):
     """
     Shows a line under your text.
     """
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__sunderlined}{text}{__endcolor}"
 
 def inverted(text):
     """
     I can't explain this, just try it and see what it looks like for you.
     """
-    execc('')
+    if autoOsSystem: execc('')
     return f"{__sinverted}{text}{__endcolor}"
+
+def blink(text):
+    """Blink
+
+[insert faded out version of "Blink"]
+
+Blink
+
+[insert faded out version of "Blink"]
+
+Blink
+
+[insert faded out version of "Blink"]"""
+    if autoOsSystem: execc('')
+    return f"{__sblink}{text}{__endcolor}"
+
+def anotherblink(text):
+    """
+    There are two ANSI codes that blink, So I'm adding this just in case.
+    """
+    if autoOsSystem: execc('')
+    return f"{__sanotherblink}{text}{__endcolor}"
