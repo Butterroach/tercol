@@ -8,7 +8,7 @@
 
 ## **What features does this library have?**
 
-- Everything other libraries have, except for rainbowtext().
+- Everything other libraries have, except for rainbowtext() which is a unique feature this library has.
 
 ## **How do I use this?**
 
