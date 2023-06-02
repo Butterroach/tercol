@@ -1,5 +1,6 @@
-"""TerCol, a useless library that colors text.
-Copyright 2022 Sultan Marzouq"""
+"""
+TerCol, a useless library that colors text.
+"""
 
 # Imports
 from os import system as execc
@@ -35,6 +36,7 @@ __sunderlined = "\u001b[4m"
 __sinverted = " \u001b[7m"
 __endcolor = "\u001b[0m"
 
+
 # hsv to rgb
 def hsv_to_rgb(h, s, v):
     """
@@ -66,7 +68,7 @@ def hsv_to_rgb(h, s, v):
 # RGB
 def rgb(r, g, b, text):
     """
-    Takes 4 values, the red, the blue, the green and the text. The color is based on what rgb you inputed.
+    Takes 4 values, the red, the green, the blue and the text. The color is based on what rgb you inputed.
     """
     if autoOsSystem:
         execc("")
@@ -83,10 +85,21 @@ def bgrgb(r, g, b, text):
 
 
 # Hex
-def hex(hex: str, text):
+def hexa(hexa, text):
     """
     Takes a hex code and a text, converts it to rgb and uses the existing rgb function in this library.
     """
+
+    try:
+        hexa = hex(hexa)[2:]
+    except TypeError as exc:
+        raise TypeError(
+            red(
+                underlined(
+                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) for 'hexa' argument, got '{type(hexa).__name__}'"
+                )
+            )
+        ) from exc
     try:
         RGBHEX = [
             "0",
@@ -106,7 +119,7 @@ def hex(hex: str, text):
             "e",
             "f",
         ]
-        hexcode = hex.replace("#", "").casefold()
+        hexcode = hexa.replace("#", "").casefold()
         hexr = int(RGBHEX.index(hexcode[0])) * 16
         hexr += int(RGBHEX.index(hexcode[1]))
         hexg = int(RGBHEX.index(hexcode[2])) * 16
@@ -114,24 +127,35 @@ def hex(hex: str, text):
         hexb = int(RGBHEX.index(hexcode[4])) * 16
         hexb += int(RGBHEX.index(hexcode[5]))
         return rgb(hexr, hexg, hexb, text)
-    except IndexError:
-        raise Exception(red(underlined("Uh oh, invalid hex code...")))
-    except ValueError:
-        raise Exception(red(underlined("Uh oh, invalid hex code...")))
-    except TypeError:
-        raise Exception(
+    except (IndexError, ValueError) as exc:
+        raise ValueError(red(underlined("'hexa' argument is invalid"))) from exc
+    except TypeError as exc:
+        raise TypeError(
             red(
                 underlined(
-                    "Hex code can't be an actual hexdecimal input. Why? This is due to how the code works."
+                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) for 'hexa' argument, got '{type(hexa).__name__}'"
                 )
             )
-        )
+        ) from exc
 
 
-def bghex(hex: str, text):
+def bghexa(hexa, text):
     """
     Same thing as hex(hex, text) but it colors the background instead.
     """
+    try:
+        hexa = hex(hexa)[2:]
+    except TypeError as exc:
+        raise TypeError(
+            red(
+                underlined(
+                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) for 'hexa' argument, got '{type(hexa).__name__}'"
+                )
+            )
+        ) from exc
+    if isinstance(hexa, hex):
+        hexa = hex(hexa)[2:]
+    print(hexa)
     try:
         RGBHEX = [
             "0",
@@ -151,7 +175,7 @@ def bghex(hex: str, text):
             "E",
             "F",
         ]
-        hexcode = hex
+        hexcode = hexa
         hexr = int(RGBHEX.index(hexcode[0])) * 16
         hexr += int(RGBHEX.index(hexcode[1]))
         hexg = int(RGBHEX.index(hexcode[2])) * 16
@@ -159,18 +183,16 @@ def bghex(hex: str, text):
         hexb = int(RGBHEX.index(hexcode[4])) * 16
         hexb += int(RGBHEX.index(hexcode[5]))
         return bgrgb(hexr, hexg, hexb, text)
-    except IndexError:
-        raise Exception(red(underlined("Uh oh, invalid hex code...")))
-    except ValueError:
-        raise Exception(red(underlined("Uh oh, invalid hex code...")))
-    except TypeError:
-        raise Exception(
+    except (IndexError, ValueError) as exc:
+        raise ValueError(red(underlined("Uh oh, invalid hex code..."))) from exc
+    except TypeError as exc:
+        raise TypeError(
             red(
                 underlined(
-                    "Hex code can't be an actual hexadecimal input. Why? This is due to how the code works."
+                    f"Expected 'str' or 'hex' for 'hexa' argument, got '{type(hexa)}'"
                 )
             )
-        )
+        ) from exc
 
 
 # HSV
@@ -181,8 +203,8 @@ def hsv(h, s, v, text):
     """
     try:
         h, s, v = int(h), int(s), int(v)
-    except ValueError:
-        raise ValueError(red(underlined("HSV is invalid.")))
+    except ValueError as exc:
+        raise ValueError(red(underlined("HSV is invalid."))) from exc
     if h > 360 or h < 0:
         raise ValueError(red(underlined("HSV is invalid. Hue must be between 0-360!")))
     if s > 100 or s < 0:
@@ -207,8 +229,8 @@ def bghsv(h, s, v, text):
     """
     try:
         h, s, v = int(h), int(s), int(v)
-    except ValueError:
-        raise ValueError(red(underlined("HSV is invalid.")))
+    except ValueError as exc:
+        raise ValueError(red(underlined("HSV is invalid."))) from exc
     if h > 360 or h < 0:
         raise ValueError(red(underlined("HSV is invalid. Hue must be between 0-360!")))
     if s > 100 or s < 0:
@@ -302,24 +324,24 @@ def rainbowtext(text):
     formedstr = ""
     i = 0
     for char in text:
-        if char in " \t\n":
+        if char in (" ", "\t", "\n", "\r"):
             formedstr += char
             continue
         mi = i % 7
         if mi == 0:
-            formedstr += hex("f33444", char)
+            formedstr += hexa(0xF33444, char)
         elif mi == 1:
-            formedstr += hex("ff8901", char)
+            formedstr += hexa(0xFF8901, char)
         elif mi == 2:
-            formedstr += hex("fad716", char)
+            formedstr += hexa(0xFAD716, char)
         elif mi == 3:
-            formedstr += hex("00ba70", char)
+            formedstr += hexa(0x00BA70, char)
         elif mi == 4:
-            formedstr += hex("00c0dd", char)
+            formedstr += hexa(0x00C0DD, char)
         elif mi == 5:
-            formedstr += hex("00408a", char)
+            formedstr += hexa(0x00408A, char)
         elif mi == 6:
-            formedstr += hex("5e2779", char)
+            formedstr += hexa(0x5E2779, char)
         i += 1
     return formedstr
 
@@ -422,26 +444,12 @@ def underlined(text):
 
 
 def inverted(text):
-    """
-    I can't explain this, just try it and see what it looks like for you.
-    """
     if autoOsSystem:
         execc("")
     return f"{__sinverted}{text}{__endcolor}"
 
 
 def blink(text):
-    """Blink
-
-    [insert faded out version of "Blink"]
-
-    Blink
-
-    [insert faded out version of "Blink"]
-
-    Blink
-
-    [insert faded out version of "Blink"]"""
     if autoOsSystem:
         execc("")
     return f"{__sblink}{text}{__endcolor}"
@@ -457,9 +465,6 @@ def anotherblink(text):
 
 
 def fadedout(text):
-    """
-    You can use this to do a manual blinking text if you want.
-    """
     return f"{__sfadedout}{text}{__endcolor}"
 
 
