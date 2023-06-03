@@ -1,5 +1,5 @@
 """
-TerCol, a useless library that colors text.
+TerCol, a library that colors text.
 """
 
 # Imports
@@ -91,12 +91,17 @@ def hexa(hexa, text):
     """
 
     try:
-        hexa = hex(hexa)[2:]
+        if isinstance(hexa, int):
+            hexa = hex(hexa)[2:]
+            if len(hexa) != 6:
+                while len(hexa) != 6:
+                    hexa = "0" + hexa
+
     except TypeError as exc:
         raise TypeError(
             red(
                 underlined(
-                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) for 'hexa' argument, got '{type(hexa).__name__}'"
+                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) or 'str' for 'hexa' argument, got '{type(hexa).__name__}'"
                 )
             )
         ) from exc
@@ -133,7 +138,7 @@ def hexa(hexa, text):
         raise TypeError(
             red(
                 underlined(
-                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) for 'hexa' argument, got '{type(hexa).__name__}'"
+                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) or 'str' for 'hexa' argument, got '{type(hexa).__name__}'"
                 )
             )
         ) from exc
@@ -144,18 +149,19 @@ def bghexa(hexa, text):
     Same thing as hex(hex, text) but it colors the background instead.
     """
     try:
-        hexa = hex(hexa)[2:]
+        if isinstance(hexa, int):
+            hexa = hex(hexa)[2:]
+            if len(hexa) != 6:
+                while len(hexa) != 6:
+                    hexa = "0" + hexa
     except TypeError as exc:
         raise TypeError(
             red(
                 underlined(
-                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) for 'hexa' argument, got '{type(hexa).__name__}'"
+                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) or 'str' for 'hexa' argument, got '{type(hexa).__name__}'"
                 )
             )
         ) from exc
-    if isinstance(hexa, hex):
-        hexa = hex(hexa)[2:]
-    print(hexa)
     try:
         RGBHEX = [
             "0",
@@ -168,14 +174,14 @@ def bghexa(hexa, text):
             "7",
             "8",
             "9",
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
         ]
-        hexcode = hexa
+        hexcode = hexa.replace("#", "").casefold()
         hexr = int(RGBHEX.index(hexcode[0])) * 16
         hexr += int(RGBHEX.index(hexcode[1]))
         hexg = int(RGBHEX.index(hexcode[2])) * 16
@@ -189,7 +195,7 @@ def bghexa(hexa, text):
         raise TypeError(
             red(
                 underlined(
-                    f"Expected 'str' or 'hex' for 'hexa' argument, got '{type(hexa)}'"
+                    f"Expected 'int' (HEXADECIMAL NUMBERS ARE INTEGERS) for 'hexa' argument, got '{type(hexa).__name__}'"
                 )
             )
         ) from exc

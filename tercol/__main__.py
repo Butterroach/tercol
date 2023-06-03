@@ -18,14 +18,13 @@ if __name__ == "__main__":
         t.magenta("█"),
         t.cyan("█"),
         t.white("█"),
-    )
-    print(
         t.gray("█"),
-        t.hexa(0xFF5C5C, "█"),
-        t.hexa(0xAFFF00, "█"),
-        t.hexa(0xFFFFAF, "█"),
-        t.hexa(0x3B78FF, "█"),
-        t.hexa(0xA964B5, "█"),
-        t.hexa(0xAFFFFF, "█"),
-        t.white("█"),
+        sep="",
     )
+    print(t.italic("Italic text"))
+    print(t.bold("Bold text"))
+    print(t.underlined("Underlined text"))
+    print(t.bold(t.italic("Bold-italic text")))
+    print(t.blink("Blinking text"))
+    print(t.fadedout("Faded out text"))
+    print(t.inverted("Inverted text"))
