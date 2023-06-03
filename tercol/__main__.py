@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    import __init__ as t
+    import tercol as t
 
     for hue in range(360):
         try:
