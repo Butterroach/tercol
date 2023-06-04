@@ -1,16 +1,8 @@
 # **[TerCol](https://pypi.org/project/tercol/)**
 
-#### _A completely useless library for terminal styling._
+TerCol is a small, pure Python library that allows you to color and style text output. TerCol has no dependencies and only requires Python 3.6 or newer. It also supports true color. (i think please tell me if it doesn't)
 
-## **Why should I use this for terminal styling?**
-
-- Sometimes, you will feel like you're insane and would wanna hit your head on the table multiple times. So, TerCol's there if that happens.
-
-## **What features does this library have?**
-
-- Everything other libraries have, except for rainbowtext() which is a unique feature this library has.
-
-## **How do I use this?**
+## Usage
 
 ```python
 import tercol
@@ -18,21 +10,29 @@ import tercol
 print(tercol.red('Red text'))
 print(tercol.blue('Blue text'))
 print(tercol.rgb(255, 215, 0, 'Gold text using RGB'))
-print(tercol.hex('#ffd700', 'Gold text using HEX'))
-print(tercol.rainbowtext('Rainbow text!'))
-
-# it's that simple.
+print(tercol.hexa(0xffd700, 'Gold text using HEX'))
+print(tercol.hsv(51, 100, 100, 'Gold text using HSV'))
+print(tercol.rainbowtext('Rainbow text'))
 ```
 
-maybe try running this too at the terminal
-```
-py -m tercol
-```
+## Requirements
 
-that's all
+TerCol only requires Python 3.6 or newer. No additional dependencies are needed.
 
-this is not advanced
+## Pros
 
-I'm not gonna talk about how "AmAzInG" this library is
+- Small size
+- Pure Python
+- No dependencies
+- Simple automatic reset handling
+- IDE-autocomplete friendly
+- True color support
 
-it's literal garbage
+## Cons
+
+- Limited support of nested styles
+- Only supports Python 3.6+
+
+## License
+
+TerCol is licensed under the MIT license.
