@@ -2,7 +2,7 @@
 
 # **[TerCol](https://pypi.org/project/tercol/)**
 
-TerCol is a small, pure Python library that allows you to color and style text output. TerCol has no dependencies and only requires Python 3.6 or newer. It also supports true color. (i think please tell me if it doesn't)
+TerCol is a small, pure Python library that allows you to color and style text output. TerCol has no dependencies and only requires Python 3.7 or newer. It also supports true color.
 
 ## Usage
 
@@ -19,7 +19,7 @@ print(tercol.rainbowtext('Rainbow text'))
 
 ## Requirements
 
-TerCol only requires Python 3.6 or newer. No additional dependencies are needed.
+TerCol only requires Python 3.7 or newer. No additional dependencies are needed.
 
 ## Pros
 
@@ -33,8 +33,8 @@ TerCol only requires Python 3.6 or newer. No additional dependencies are needed.
 ## Cons
 
 - Limited support of nested styles
-- Only supports Python 3.6+
+- Only supports Python 3.7+
 
 ## License
 
-TerCol is licensed under the MIT license.
+TerCol is licensed under the MIT license. See the LICENSE file for more info.
