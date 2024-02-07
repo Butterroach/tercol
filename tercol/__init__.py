@@ -5,8 +5,11 @@ TerCol, a library that colors text.
 # Imports
 from os import system as execc
 
-# DISABLE THIS TO STOP IT FROM DOING os.system('')
 autoOsSystem = True
+"""
+DISABLE THIS TO STOP IT FROM DOING os.system('')
+"""
+
 
 # Color codes
 __cblack = "\u001b[30m"
