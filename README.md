@@ -23,17 +23,17 @@ TerCol only requires Python 3.7 or newer. No additional dependencies are needed.
 
 ## Pros
 
-- Small size
-- Pure Python
-- No dependencies
-- Simple automatic reset handling
-- IDE-autocomplete friendly
-- True color support
+-   Small size
+-   Pure Python
+-   No dependencies
+-   Simple automatic reset handling
+-   IDE-autocomplete friendly
+-   True color support
 
 ## Cons
 
-- Limited support of nested styles
-- Only supports Python 3.7+
+-   Limited support of nested styles
+-   Only supports Python 3.7+
 
 ## License
 
