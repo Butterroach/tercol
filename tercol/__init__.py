@@ -149,7 +149,7 @@ def hexa(hexa, text):
 
 def bghexa(hexa, text):
     """
-    Same thing as hex(hex, text) but it colors the background instead.
+    Same thing as hexa(hex, text) but it colors the background instead.
     """
     try:
         if isinstance(hexa, int):
