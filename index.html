@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tercol</title>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<div><h1>tercol</h1></div>
+<br>
+<p>TerCol is a small, pure Python library that allows you to color and style text output. TerCol has no dependencies and only requires Python 3.7 or newer. It also supports true color.</p>
+<h2> Installation </h2>
+<p> To install TerCol, you can use pip to install the <code>tercol</code> module. </p>
+<h2> Usage </h2>
+<pre><code class="language-py">import tercol
+
+print(tercol.red('Red text'))
+print(tercol.blue('Blue text'))
+print(tercol.rgb(255, 215, 0, 'Gold text using RGB'))
+print(tercol.hexa(0xffd700, 'Gold text using HEX'))
+print(tercol.hsv(51, 100, 100, 'Gold text using HSV'))
+print(tercol.rainbowtext('Rainbow text'))</code></pre>
+<h2> Dependencies </h2>
+<p>TerCol only requires Python 3.7 or newer. No additional dependencies are needed.</p>
+<h2> Pros of using TerCol </h2>
+<ul>
+<li>Small size</li>
+<li>Pure Python</li>
+<li>No dependencies</li>
+<li>Simple automatic reset handling</li>
+<li>IDE-autocomplete friendly</li>
+<li>True color support</li>
+</ul>
+<h2> Cons of using TerCol </h2>
+<ul>
+<li>Limited support of nested styles</li>
+<li>Only supports Python 3.7+</li>
+</ul>
+<br>
+<br>
+<br>
+<h6>I made this website on my phone and I hate it</h6>
+
+<script>hljs.highlightAll();</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+background-color: rgb(30,30,30);
+}
+* {
+font-family: "noto sans";
+}
+h1, h2, h3 {
+font-family "noto sans display";
+}
+p, h1, h2, h3, h4, h5, h6 {
+text-align: center;
+color: white;
+}
+p {
+font-weight: 500;
+}
+h1 {
+background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,255,0,1) 25%, rgba(0,255,242,1) 50%, rgba(92,0,255,1) 75%, rgba(255,0,0,1) 100%);
+width:100px;
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+box-shadow: 0px 0px 100px 25px white, inset 0px 0px 15px 3px gray;
+border-radius: 100px;
+}
+div {
+display: flex;
+justify-content: center;
+}
+pre * {
+font-family: monospace;
+}
+code{
+font-family: monospace;
+background-color: rgb(50, 50, 50)
+}
+li{
+color: white;
+}
+li:marker {
+color:white;
+}
+</style>
+</body>
+</html>
