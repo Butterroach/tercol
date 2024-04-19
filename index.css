@@ -70,5 +70,6 @@ li:marker {
 }
 
 pre {
-    width: 50vw;
+    display: flex;
+    justify-content: center;
 }
