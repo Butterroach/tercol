@@ -78,3 +78,17 @@ pre code {
     border-radius: 11px;
     box-shadow: inset 0px 0px 20px 0px black;
 }
+
+a {
+    transition: all 0.2s;
+    /*box-shadow: 0px 0px 100px 25px white, inset 0px 0px 15px 3px gray;*/
+    border-radius: 100px;
+    color: rgb(0, 80, 160);
+}
+
+a:hover {
+    transition: all 0.2s;
+    color: rgb(0, 128, 255);
+    box-shadow: 0 0 100px 10px red, 0 0 200px 20px orange, 0 0 350px 35px yellow,
+        0 0 500px 50px green, 0 0 650px 50px blue, 0 0 800px 65px violet; /* IF UCKING HATE MYSELF */
+}
