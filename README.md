@@ -1,6 +1,6 @@
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
 # **[TerCol](https://pypi.org/project/tercol/)**
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Test](https://github.com/Butterroach/tercol/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/Butterroach/tercol/actions/workflows/test.yml)
 
 TerCol is a small, pure Python library that allows you to color and style text output. TerCol has no dependencies and only requires Python 3.7 or newer. It also supports true color.
 
