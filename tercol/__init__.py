@@ -1,17 +1,15 @@
 """
-TerCol, a library that colors text.
+NO LONGER UPDATED!!!! USE TRANCI INSTEAD!!!!!!! https://pypi.org/project/tranci
 """
 
-# Imports
-from os import system as execc
+import os
+import time
 
-autoOsSystem = True
-"""
-DISABLE THIS TO STOP IT FROM DOING os.system('')
-"""
+autoOsSystem = True  # kept for compatibility
 
+if os.name == "nt":
+    os.system("")
 
-# Color codes
 __cblack = "\u001b[30m"
 __cred = "\u001b[31m"
 __cgreen = "\u001b[32m"
@@ -33,14 +31,13 @@ __cbggray = "\u001b[0;100m"
 __sbold = "\u001b[1m"
 __sitalic = "\u001b[3m"
 __sblink = "\u001b[5m"
-__sanotherblink = "\u001b[6m"  # I dunno what the difference between 5m and 6m is but they both blink so I'm adding this just in case someone needs it
+__sanotherblink = "\u001b[6m"
 __sfadedout = "\u001b[2m"
 __sunderlined = "\u001b[4m"
 __sinverted = " \u001b[7m"
 __endcolor = "\u001b[0m"
 
 
-# hsv to rgb
 def hsv_to_rgb(h, s, v):
     """
     THIS IS NOT IMPORTANT AND YOU WILL NOT NEED TO USE THIS IN YOUR CODE. This is just colorsys.hsv_to_rgb(). I am defining this instead of importing colorsys to achieve compatability.
@@ -68,13 +65,10 @@ def hsv_to_rgb(h, s, v):
     # Cannot get here
 
 
-# RGB
 def rgb(r, g, b, text):
     """
     Takes 4 values, the red, the green, the blue and the text. The color is based on what rgb you inputed.
     """
-    if autoOsSystem:
-        execc("")
     return f"\u001b[38;2;{r};{g};{b}m{text}{__endcolor}"
 
 
@@ -82,12 +76,9 @@ def bgrgb(r, g, b, text):
     """
     Same thing as rgb(r, g, b, text) but it colors the background instead.
     """
-    if autoOsSystem:
-        execc("")
     return f"\u001b[48;2;{r};{g};{b}m{text}{__endcolor}"
 
 
-# Hex
 def hexa(hexa, text):
     """
     Takes a hex code and a text, converts it to rgb and uses the existing rgb function in this library.
@@ -204,7 +195,6 @@ def bghexa(hexa, text):
         ) from exc
 
 
-# HSV
 def hsv(h, s, v, text):
     """
     Takes a hue, saturation, and value, and then converts it to RGB, and returns the value of rgb(ConvertedHue, ConvertedSaturation, ConvertedValue, text).
@@ -257,58 +247,39 @@ def bghsv(h, s, v, text):
     return bgrgb(ConvertedHue, ConvertedSaturation, ConvertedValue, text)
 
 
-# Color Functions
 def black(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cblack}{text}{__endcolor}"
 
 
 def red(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cred}{text}{__endcolor}"
 
 
 def green(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cgreen}{text}{__endcolor}"
 
 
 def yellow(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cyellow}{text}{__endcolor}"
 
 
 def blue(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cblue}{text}{__endcolor}"
 
 
 def magenta(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cmagenta}{text}{__endcolor}"
 
 
 def cyan(text):
-    if autoOsSystem:
-        execc("")
     return f"{__ccyan}{text}{__endcolor}"
 
 
 def white(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cwhite}{text}{__endcolor}"
 
 
 def gray(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cgray}{text}{__endcolor}"
 
 
@@ -328,87 +299,50 @@ def rainbowtext(text):
     """
     Enjoy I guess
     """
-    if autoOsSystem:
-        execc("")
-    formedstr = ""
-    i = 0
-    for char in text:
+    colors = [0xF33444, 0xFF8901, 0xFAD716, 0x00BA70, 0x00C0DD, 0x00408A, 0x5E2779]
+    formedstr = []
+    for i, char in enumerate(text):
         if char in (" ", "\t", "\n", "\r"):
-            formedstr += char
-            continue
-        mi = i % 7
-        if mi == 0:
-            formedstr += hexa(0xF33444, char)
-        elif mi == 1:
-            formedstr += hexa(0xFF8901, char)
-        elif mi == 2:
-            formedstr += hexa(0xFAD716, char)
-        elif mi == 3:
-            formedstr += hexa(0x00BA70, char)
-        elif mi == 4:
-            formedstr += hexa(0x00C0DD, char)
-        elif mi == 5:
-            formedstr += hexa(0x00408A, char)
-        elif mi == 6:
-            formedstr += hexa(0x5E2779, char)
-        i += 1
-    return formedstr
-
-
-# Background colors
+            formedstr.append(char)
+        else:
+            color = colors[i % 7]
+            formedstr.append(hexa(color, char))
+    return "".join(formedstr)
 
 
 def bgblack(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbgblack}{text}{__endcolor}"
 
 
 def bgred(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbgred}{text}{__endcolor}"
 
 
 def bggreen(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbggreen}{text}{__endcolor}"
 
 
 def bgyellow(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbgyellow}{text}{__endcolor}"
 
 
 def bgblue(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbgblue}{text}{__endcolor}"
 
 
 def bgmagenta(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbgmagenta}{text}{__endcolor}"
 
 
 def bgcyan(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbgcyan}{text}{__endcolor}"
 
 
 def bgwhite(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbgwhite}{text}{__endcolor}"
 
 
 def bggray(text):
-    if autoOsSystem:
-        execc("")
     return f"{__cbggray}{text}{__endcolor}"
 
 
@@ -424,13 +358,10 @@ def bglightblack(text):
     return bggray(text)
 
 
-# Style/Look
 def bold(text):
     """
     Makes your text bold.
     """
-    if autoOsSystem:
-        execc("")
     return f"{__sbold}{text}{__endcolor}"
 
 
@@ -438,8 +369,6 @@ def italic(text):
     """
     Makes your text italic.
     """
-    if autoOsSystem:
-        execc("")
     return f"{__sitalic}{text}{__endcolor}"
 
 
@@ -447,29 +376,18 @@ def underlined(text):
     """
     Shows a line under your text.
     """
-    if autoOsSystem:
-        execc("")
     return f"{__sunderlined}{text}{__endcolor}"
 
 
 def inverted(text):
-    if autoOsSystem:
-        execc("")
     return f"{__sinverted}{text}{__endcolor}"
 
 
 def blink(text):
-    if autoOsSystem:
-        execc("")
     return f"{__sblink}{text}{__endcolor}"
 
 
 def anotherblink(text):
-    """
-    There are two ANSI codes that blink, So I'm adding this just in case.
-    """
-    if autoOsSystem:
-        execc("")
     return f"{__sanotherblink}{text}{__endcolor}"
 
 
@@ -482,3 +400,29 @@ def dim(text):
     Alias for fadedout()
     """
     return fadedout(text)
+
+
+def skippable_countdown(secs: float):
+    try:
+        for i in range(secs):
+            print(f"{secs - i} secs...", end="    \r")
+            time.sleep(1)
+    except KeyboardInterrupt:
+        pass
+
+
+print(
+    f"{red('Uh oh!')} It looks like the program you're running is using {underlined(bold('a library called TerCol, which is no longer updated'))}!"
+)
+skippable_countdown(3)
+print("TerCol has been deprecated in favor of tranci: https://pypi.org/project/tranci")
+skippable_countdown(3)
+print(
+    f"If you're a maintainer of this program, {bold('please switch to tranci!')} It's more modern, more Pythonic, and has many bugs fixed!"
+)
+skippable_countdown(5)
+print(
+    f"If you're a user, {italic('please try to contact whoever maintains this program with a screenshot of this output.')} They'll appreciate it."
+)
+skippable_countdown(3)
+input("Press enter to continue running your program. ")

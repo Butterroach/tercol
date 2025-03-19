@@ -4,16 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tercol"
-version = "0.1.5"
+version = "1.0.0"
 authors = [
-  { name="Butterroach", email="butterroach@proton.me" },
+  { name="Butterroach", email="butterroach@outlook.com" },
 ]
-description = "TerCol is a library that colors your text."
+description = "DEPRECATED!!! Use tranci instead!"
 readme = "README.md"
 requires-python = ">=3.7"
-keywords = ["terminal styling", "colors", "style"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 7 - Inactive",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

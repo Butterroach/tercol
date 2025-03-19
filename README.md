@@ -1,3 +1,64 @@
+# DEPRECATED!!!!!!!
+
+# Use [tranci](https://pypi.org/project/tranci) instead!!!!
+
+# Scroll down below for the original README
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 # **[TerCol](https://pypi.org/project/tercol/)**
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Test](https://github.com/Butterroach/tercol/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/Butterroach/tercol/actions/workflows/test.yml)
